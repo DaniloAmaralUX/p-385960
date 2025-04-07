@@ -1,5 +1,6 @@
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 const features = [
   {
@@ -26,18 +27,18 @@ export function Features() {
   return (
     <section className="box-border flex gap-6 mb-20 m-0 px-52 py-0 max-md:px-5 max-md:py-0 max-sm:flex-col">
       {features.map((feature, index) => (
-        <div
-          key={index}
-          className="box-border bg-[#1E1E1E] m-0 px-8 py-6 rounded-xl border-2 border-solid border-[#2D2D2D] w-[325px]"
+        <Card 
+          key={index} 
+          className="box-border bg-[#1E1E1E] border-2 border-solid border-[#2D2D2D] w-[325px]"
         >
-          <div className="mb-[15px]" dangerouslySetInnerHTML={{ __html: feature.icon }} />
-          <div className="box-border text-xl font-bold text-[#F2F2F7] mb-3.5 m-0 p-0">
-            {feature.title}
-          </div>
-          <div className="box-border text-base leading-[23px] m-0 p-0">
-            {feature.description}
-          </div>
-        </div>
+          <CardHeader className="p-8 pb-3">
+            <div className="mb-[15px]" dangerouslySetInnerHTML={{ __html: feature.icon }} />
+            <h3 className="text-xl font-bold text-[#F2F2F7]">{feature.title}</h3>
+          </CardHeader>
+          <CardContent className="p-8 pt-0">
+            <p className="text-base leading-[23px]">{feature.description}</p>
+          </CardContent>
+        </Card>
       ))}
     </section>
   );
