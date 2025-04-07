@@ -1,9 +1,15 @@
 
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Menu } from "lucide-react";
+import { useState } from "react";
 
 export function Header() {
+  const isMobile = useIsMobile();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <header className="flex justify-between items-center h-[62px] bg-[#121212] m-0 px-16 py-0 border-b border-[#1A1A1A] max-md:px-5">
+    <header className="flex justify-between items-center h-[62px] bg-[#121212] m-0 px-16 py-0 border-b border-[#1A1A1A] max-md:px-5 sticky top-0 z-50">
       <div className="w-8 h-8">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32Z" fill="#121212"/>
@@ -12,17 +18,49 @@ export function Header() {
           <path d="M16 4C15.2 4 14.5 4.7 14.5 5.5V10C14.5 10.8 15.2 11.5 16 11.5C16.8 11.5 17.5 10.8 17.5 10V5.5C17.5 4.7 16.8 4 16 4Z" fill="#34C759"/>
         </svg>
       </div>
-      <nav className="flex items-center gap-8">
-        <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors">Lorem</a>
-        <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors">Lorem</a>
-        <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors">Lorem lorem</a>
-        <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors">Lorem</a>
-        <Button 
-          className="bg-[#34C759] hover:bg-[#2db14e] text-white text-sm font-medium px-4 py-1 rounded h-auto"
-        >
-          Lorem
-        </Button>
-      </nav>
+
+      {isMobile ? (
+        <div className="relative">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="text-white" 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <Menu className="h-6 w-6" />
+          </Button>
+
+          {mobileMenuOpen && (
+            <div className="absolute right-0 top-full mt-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-md py-3 w-[200px]">
+              <nav className="flex flex-col gap-2">
+                <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors px-4 py-2">Lorem</a>
+                <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors px-4 py-2">Lorem</a>
+                <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors px-4 py-2">Lorem lorem</a>
+                <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors px-4 py-2">Lorem</a>
+                <div className="px-4 pt-2">
+                  <Button 
+                    className="bg-[#34C759] hover:bg-[#2db14e] text-white text-sm font-medium px-4 py-1 rounded h-auto w-full"
+                  >
+                    Lorem
+                  </Button>
+                </div>
+              </nav>
+            </div>
+          )}
+        </div>
+      ) : (
+        <nav className="flex items-center gap-8 max-lg:gap-4">
+          <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors">Lorem</a>
+          <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors">Lorem</a>
+          <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors">Lorem lorem</a>
+          <a href="#" className="text-white text-sm hover:text-[#34C759] transition-colors">Lorem</a>
+          <Button 
+            className="bg-[#34C759] hover:bg-[#2db14e] text-white text-sm font-medium px-4 py-1 rounded h-auto"
+          >
+            Lorem
+          </Button>
+        </nav>
+      )}
     </header>
   );
 }

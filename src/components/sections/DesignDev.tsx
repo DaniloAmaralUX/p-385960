@@ -38,8 +38,8 @@ const devServices = [
 export function DesignDev() {
   return (
     <section className="px-16 mb-24 max-md:px-5">
-      <h2 className="text-4xl font-bold mb-8">Design & Development</h2>
-      <div className="grid grid-cols-3 gap-6 max-md:grid-cols-2 max-sm:grid-cols-1">
+      <h2 className="text-4xl font-bold mb-8 max-md:text-3xl max-sm:text-2xl">Design & Development</h2>
+      <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
         {devServices.map((service, index) => (
           <Card 
             key={index} 

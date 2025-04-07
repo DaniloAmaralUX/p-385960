@@ -22,7 +22,7 @@ const features = [
 
 export function Features() {
   return (
-    <section className="flex justify-between gap-6 px-16 mb-24 max-md:px-5 max-md:flex-wrap max-sm:flex-col">
+    <section className="grid grid-cols-3 gap-6 px-16 mb-24 max-lg:grid-cols-2 max-md:px-5 max-sm:grid-cols-1">
       {features.map((feature, index) => (
         <Card 
           key={index} 
