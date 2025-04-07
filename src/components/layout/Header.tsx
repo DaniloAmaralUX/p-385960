@@ -1,6 +1,9 @@
+
+import { Button } from "@/components/ui/button";
+
 export function Header() {
   return (
-    <header className="box-border flex justify-between items-center h-[62px] bg-[#252525] m-0 px-4 py-0 border-b-[rgba(0,0,0,0.1)] border-b border-solid">
+    <header className="box-border flex justify-between items-center h-[62px] bg-[#252525] m-0 px-52 py-0 border-b-[rgba(0,0,0,0.1)] border-b border-solid max-md:px-5">
       <div className="box-border w-[93px] h-8 m-0 p-0">
         <div
           dangerouslySetInnerHTML={{
@@ -33,9 +36,11 @@ export function Header() {
         >
           Lorem
         </a>
-        <button className="box-border text-white text-[13.5px] font-semibold bg-[#34C759] m-0 px-2.5 py-[5px] rounded-[5px] hover:bg-[#2db14e] transition-colors">
+        <Button 
+          className="bg-[#34C759] hover:bg-[#2db14e] text-white text-[13.5px] font-semibold px-2.5 py-[5px] rounded-[5px] h-auto"
+        >
           Lorem
-        </button>
+        </Button>
       </nav>
     </header>
   );

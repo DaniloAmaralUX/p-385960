@@ -36,7 +36,7 @@ export function Services() {
               <h3 className="text-xl font-bold text-[#F2F2F7]">{service.title}</h3>
             </CardHeader>
             <CardContent className="p-8 pt-0">
-              <p className="text-base leading-[23px]">{service.description}</p>
+              <p className="text-base leading-[23px] text-muted-foreground">{service.description}</p>
             </CardContent>
           </Card>
         ))}

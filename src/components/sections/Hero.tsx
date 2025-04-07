@@ -1,3 +1,6 @@
+
+import { Button } from "@/components/ui/button";
+
 export function Hero() {
   return (
     <section className="box-border flex justify-between items-center gap-[100px] m-0 px-52 py-[100px] max-md:flex-col max-md:gap-[50px] max-md:px-5 max-md:py-[50px]">
@@ -5,13 +8,15 @@ export function Hero() {
         <h1 className="box-border text-[45px] font-bold leading-[49px] tracking-[-1.21px] mb-[30px] m-0 p-0 max-sm:text-[32px] max-sm:leading-[38px]">
           Secure IT Solutions for a more secure environment
         </h1>
-        <p className="box-border text-lg leading-6 mb-[45px] m-0 p-0">
+        <p className="box-border text-lg leading-6 mb-[45px] m-0 p-0 text-muted-foreground">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor inci...
         </p>
-        <button className="box-border text-white font-semibold text-base cursor-pointer bg-[#34C759] m-0 px-[46px] py-[11px] rounded-[5px] hover:bg-[#2db14e] transition-colors">
+        <Button 
+          className="bg-[#34C759] hover:bg-[#2db14e] text-white font-semibold px-[46px] py-[11px] rounded-[5px]"
+        >
           GET STARTED
-        </button>
+        </Button>
       </div>
       <div className="box-border w-[370px] h-[370px] m-0 p-0 max-sm:w-full max-sm:h-auto">
         <div
