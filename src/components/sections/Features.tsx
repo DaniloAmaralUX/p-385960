@@ -1,4 +1,5 @@
-import { Card } from "@/components/ui/Card";
+
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 const features = [
   {
@@ -25,13 +26,18 @@ export function Features() {
   return (
     <section className="box-border flex gap-6 mb-20 m-0 px-52 py-0 max-md:px-5 max-md:py-0 max-sm:flex-col">
       {features.map((feature, index) => (
-        <Card
+        <div
           key={index}
-          title={feature.title}
-          description={feature.description}
-          className="w-[325px]"
-          icon={<div dangerouslySetInnerHTML={{ __html: feature.icon }} />}
-        />
+          className="box-border bg-[#1E1E1E] m-0 px-8 py-6 rounded-xl border-2 border-solid border-[#2D2D2D] w-[325px]"
+        >
+          <div className="mb-[15px]" dangerouslySetInnerHTML={{ __html: feature.icon }} />
+          <div className="box-border text-xl font-bold text-[#F2F2F7] mb-3.5 m-0 p-0">
+            {feature.title}
+          </div>
+          <div className="box-border text-base leading-[23px] m-0 p-0">
+            {feature.description}
+          </div>
+        </div>
       ))}
     </section>
   );

@@ -1,5 +1,5 @@
 
-import { Card } from "@/components/ui/Card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 const services = [
   {
@@ -27,12 +27,18 @@ export function Services() {
       </h2>
       <div className="box-border grid grid-cols-3 gap-6 m-0 p-0 max-md:grid-cols-2 max-sm:grid-cols-1">
         {services.map((service, index) => (
-          <Card
+          <div
             key={index}
-            title={service.title}
-            description={service.description}
-            icon={<div dangerouslySetInnerHTML={{ __html: service.icon }} />}
-          />
+            className="box-border bg-[#1E1E1E] m-0 px-8 py-6 rounded-xl border-2 border-solid border-[#2D2D2D]"
+          >
+            {service.icon && <div className="mb-[15px]" dangerouslySetInnerHTML={{ __html: service.icon }} />}
+            <div className="box-border text-xl font-bold text-[#F2F2F7] mb-3.5 m-0 p-0">
+              {service.title}
+            </div>
+            <div className="box-border text-base leading-[23px] m-0 p-0">
+              {service.description}
+            </div>
+          </div>
         ))}
       </div>
     </section>
